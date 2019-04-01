@@ -11,4 +11,5 @@ public class scr_Field : MonoBehaviour
     public bool isLapStart;
     public bool isSectionFinish;
     public bool isSectionStart;
+    public bool isPossible;
 }
