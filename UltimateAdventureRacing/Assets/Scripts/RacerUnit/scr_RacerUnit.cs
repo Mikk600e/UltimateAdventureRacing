@@ -20,6 +20,7 @@ public class scr_RacerUnit : MonoBehaviour
 
     public void Start()
     {
+        transform.position = startField.transform.position;
     }
 
     private void Update()
