@@ -8,6 +8,7 @@ public class scr_RacerUnit : MonoBehaviour
     public int remainingMovement = 0;
     public scr_Gear gearObject;
     public int currentGear = 1;
+    public int speed;
     public scr_Field startField;
     public scr_Field currentField;
     public scr_Section currentSection;
@@ -20,12 +21,13 @@ public class scr_RacerUnit : MonoBehaviour
 
     public void Start()
     {
+        speed = 8;
         transform.position = startField.transform.position;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && remainingMovement>0)
         {
             //sets the available fields. should be moved somewhere else, like the start of the racers turn instead of whenever clicking
             List<scr_Field> fields = PossibleFields();
@@ -53,6 +55,7 @@ public class scr_RacerUnit : MonoBehaviour
                 //Move unit and update current field if the clicked field was a valid field
                 transform.position = hit.transform.position;
                 currentField = clickedField;
+                remainingMovement--;
             }
         }
         return true;
@@ -62,12 +65,12 @@ public class scr_RacerUnit : MonoBehaviour
     {
         List<scr_Field> scr_Fields = new List<scr_Field>();
         if (!currentField.isSectionFinish)
-            scr_Fields = PossibleFieldsMidSection();
+            scr_Fields = PossibleFieldsSection();
 
         return scr_Fields;
     }
 
-    List<scr_Field> PossibleFieldsMidSection()
+    List<scr_Field> PossibleFieldsSection()
     {
         List<scr_Field> Fields = new List<scr_Field>();
 
