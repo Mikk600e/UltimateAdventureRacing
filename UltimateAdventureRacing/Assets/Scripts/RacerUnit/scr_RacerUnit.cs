@@ -21,23 +21,31 @@ public class scr_RacerUnit : MonoBehaviour
 
     public void Start()
     {
+        currentField = startField;
         speed = 8;
         transform.position = startField.transform.position;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && remainingMovement>0)
+        if (isStillPlaying)
         {
-            //sets the available fields. should be moved somewhere else, like the start of the racers turn instead of whenever clicking
-            List<scr_Field> fields = PossibleFields();
-            MoveUnit();
-
-            //clear the "isPossible" bool of the fields, since after moving they are no longer possible
-            foreach (scr_Field field in fields)
+            if (Input.GetMouseButtonDown(0) && remainingMovement > 0)
             {
-                field.isPossible = false;
+                //sets the available fields. should be moved somewhere else, like the start of the racers turn instead of whenever clicking
+                List<scr_Field> fields = PossibleFields();
+                MoveUnit();
+
+                //clear the "isPossible" bool of the fields, since after moving they are no longer possible
+                foreach (scr_Field field in fields)
+                {
+                    field.isPossible = false;
+                }
             }
+        }
+        else
+        {
+            remainingMovement = 0;
         }
     }
 
@@ -57,6 +65,11 @@ public class scr_RacerUnit : MonoBehaviour
                 currentField = clickedField;
                 remainingMovement--;
             }
+        }
+        //Stops the player from being active. Currently at the end of lap, but should be changed
+        if (currentField.isLapFinish)
+        {
+            isStillPlaying = false;
         }
         return true;
     }
@@ -107,7 +120,8 @@ public class scr_RacerUnit : MonoBehaviour
         return Fields;
     }
 
-    public bool LegitimateMove(scr_Field possibleMove) // checks if field is viable and legitimate i.e. no other racers, it exits etc.
+    // checks if field is viable and legitimate i.e. no other racers, it exists etc.
+    public bool LegitimateMove(scr_Field possibleMove) 
     {
         return true;
     }

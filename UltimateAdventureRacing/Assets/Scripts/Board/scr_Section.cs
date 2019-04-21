@@ -16,6 +16,7 @@ public class scr_Section : MonoBehaviour
     
     void Start()
     {
+        //Adds every child to the list of lanes (should probably validate whether the child is a lane or not)
         foreach (Transform child in transform)
         {
             lanes.Add(child.gameObject.GetComponent<scr_Lane>());
