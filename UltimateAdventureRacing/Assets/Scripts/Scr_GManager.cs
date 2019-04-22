@@ -8,7 +8,7 @@ public class Scr_GManager : MonoBehaviour
 {
     public scr_RacerUnit[] units;
     [SerializeField]
-    scr_RacerUnit currentUnit;
+    public scr_RacerUnit currentUnit;
     public int unitTracker = 0;
     public Text txt_remainingMovement;
     public Text txt_currentPlayer;

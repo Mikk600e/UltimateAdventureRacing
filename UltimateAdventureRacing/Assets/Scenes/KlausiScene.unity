@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 100221412}
   - component: {fileID: 100221411}
   - component: {fileID: 100221410}
+  - component: {fileID: 100221413}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -206,6 +207,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &100221413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100221409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d794b7f5756089e40accc573e26eec29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1650775816}
 --- !u!114 &122205082 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7073548036761582504, guid: a8bee7a3f4ca8dd42b211ffe986ede12,
@@ -937,6 +951,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2550328373846343939, guid: b5e82fd8782970f4eac54dc077f26307,
+        type: 3}
+      propertyPath: startField
+      value: 
+      objectReference: {fileID: 1596411355}
+    - target: {fileID: 2550328373846343939, guid: b5e82fd8782970f4eac54dc077f26307,
+        type: 3}
+      propertyPath: currentSection
+      value: 
+      objectReference: {fileID: 1995168452}
     - target: {fileID: 2550328373846343999, guid: b5e82fd8782970f4eac54dc077f26307,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -992,16 +1016,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2550328373846343939, guid: b5e82fd8782970f4eac54dc077f26307,
-        type: 3}
-      propertyPath: startField
-      value: 
-      objectReference: {fileID: 1596411355}
-    - target: {fileID: 2550328373846343939, guid: b5e82fd8782970f4eac54dc077f26307,
-        type: 3}
-      propertyPath: currentSection
-      value: 
-      objectReference: {fileID: 1995168452}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e82fd8782970f4eac54dc077f26307, type: 3}
 --- !u!1001 &6823118947932549755
