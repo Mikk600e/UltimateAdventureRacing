@@ -8,7 +8,6 @@ public class scr_RacerUnit : MonoBehaviour
     public int turnOrder;
     public int remainingMovement = 0;
     public scr_Gear gearObject;
-    public int currentGear = 1;
     public int speed;
     public scr_Field startField;
     public scr_Field currentField;
@@ -22,6 +21,7 @@ public class scr_RacerUnit : MonoBehaviour
 
     public void Start()
     {
+        gearObject = GetComponent<scr_Gear>();
         currentField = startField;
         speed = 8;
         transform.position = startField.transform.position;

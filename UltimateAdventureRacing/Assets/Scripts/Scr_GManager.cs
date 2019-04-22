@@ -12,6 +12,8 @@ public class Scr_GManager : MonoBehaviour
     public int unitTracker = 0;
     public Text txt_remainingMovement;
     public Text txt_currentPlayer;
+    public Button btn_GearUp;
+    public Button btn_GearDown;
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +30,6 @@ public class Scr_GManager : MonoBehaviour
         UpdateUI();
     }
 
-    public void SetMovement()
-    {
-        if (currentUnit.remainingMovement == 0)
-        {
-            currentUnit.sectionStoppedCounter++;
-            SwitchUnit();
-            currentUnit.remainingMovement = UnityEngine.Random.Range(1, currentUnit.speed + 1);
-            currentUnit.startField = currentUnit.currentField;
-        }
-    }
 
     //Updates text on the UI
     void UpdateUI()
@@ -57,5 +49,35 @@ public class Scr_GManager : MonoBehaviour
         {
             unitTracker = 0;
         }
+    }
+
+    //Method for when "End turn" button is clicked
+    public void SetMovement()
+    {
+        if (currentUnit.remainingMovement == 0)
+        {
+            currentUnit.sectionStoppedCounter++;
+            SwitchUnit();
+            currentUnit.remainingMovement = UnityEngine.Random.Range(currentUnit.gearObject.GetLowerVal(), currentUnit.gearObject.GetUpperVal() + 1);
+            currentUnit.startField = currentUnit.currentField;
+            btn_GearDown.interactable = true;
+            btn_GearUp.interactable = true;
+        }
+    }
+
+    //Method for when "Gear up" is clicked
+    public void GearUp()
+    {
+        currentUnit.gearObject.GearUp();
+        btn_GearDown.interactable = false;
+        btn_GearUp.interactable = false;
+    }
+
+    //Method for when "Gear down" is clicked
+    public void GearDown()
+    {
+        currentUnit.gearObject.GearDown();
+        btn_GearDown.interactable = false;
+        btn_GearUp.interactable = false;
     }
 }
