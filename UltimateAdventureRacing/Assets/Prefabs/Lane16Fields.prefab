@@ -399,11 +399,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6123550037983601483, guid: 97d99753258aa3e4b8cf5fab70f26f1a,
         type: 3}
-      propertyPath: section
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6123550037983601483, guid: 97d99753258aa3e4b8cf5fab70f26f1a,
-        type: 3}
       propertyPath: placementNumber
       value: 13
       objectReference: {fileID: 0}

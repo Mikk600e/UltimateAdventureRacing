@@ -50,6 +50,7 @@ MonoBehaviour:
   minRequiredStops: 0
   placementNumber: 0
   lanes: []
+  nextSection: {fileID: 0}
   rule: 2
 --- !u!1001 &1236617882642157909
 PrefabInstance:
@@ -58,11 +59,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2595333158638219402}
     m_Modifications:
-    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Lane2
-      objectReference: {fileID: 0}
     - target: {fileID: 6288758784260836204, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -117,6 +113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
+        type: 3}
+      propertyPath: m_Name
+      value: Lane2
       objectReference: {fileID: 0}
     - target: {fileID: 4041538890381419027, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}
@@ -373,11 +374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2595333158638219402}
     m_Modifications:
-    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Lane3
-      objectReference: {fileID: 0}
     - target: {fileID: 6288758784260836204, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -432,6 +428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
+        type: 3}
+      propertyPath: m_Name
+      value: Lane3
       objectReference: {fileID: 0}
     - target: {fileID: 4041538890381419027, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}
@@ -608,11 +609,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2595333158638219402}
     m_Modifications:
-    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Lane1
-      objectReference: {fileID: 0}
     - target: {fileID: 6288758784260836204, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -667,6 +663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
+        type: 3}
+      propertyPath: m_Name
+      value: Lane1
       objectReference: {fileID: 0}
     - target: {fileID: 4041538890381419027, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}
@@ -923,11 +924,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2595333158638219402}
     m_Modifications:
-    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Lane0
-      objectReference: {fileID: 0}
     - target: {fileID: 6288758784260836204, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -982,6 +978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426885755702534295, guid: 8b4b791b26564234b9554c66dd4f09b5,
+        type: 3}
+      propertyPath: m_Name
+      value: Lane0
       objectReference: {fileID: 0}
     - target: {fileID: 3614410717243420862, guid: 8b4b791b26564234b9554c66dd4f09b5,
         type: 3}

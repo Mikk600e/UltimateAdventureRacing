@@ -33,21 +33,37 @@ public class scr_RacerUnit : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && remainingMovement > 0)
             {
-                //sets the available fields. should be moved somewhere else, like the start of the racers turn instead of whenever clicking
-                List<scr_Field> fields = PossibleFields();
-                MoveUnit();
-
-                //clear the "isPossible" bool of the fields, since after moving they are no longer possible
-                foreach (scr_Field field in fields)
+                if (currentField.isSectionFinish && sectionStoppedCounter < currentSection.minRequiredStops)
                 {
-                    field.isPossible = false;
+                    Crash();
+                }
+                else
+                {
+                    //sets the available fields. 
+                    List<scr_Field> fields = PossibleFields();
+                    MoveUnit();
+
+                    //clear the "isPossible" bool of the fields, since after moving they are no longer possible
+                    foreach (scr_Field field in fields)
+                    {
+                        field.isPossible = false;
+                    }
                 }
             }
         }
+
         else
         {
             remainingMovement = 0;
         }
+    }
+
+    private void Crash()
+    {
+        remainingMovement = 0;
+        currentField = startField;
+        transform.position = startField.gameObject.transform.position;
+        currentSection = currentField.GetComponentInParent<scr_Section>();
     }
 
     public bool MoveUnit()
@@ -67,11 +83,13 @@ public class scr_RacerUnit : MonoBehaviour
                 remainingMovement--;
             }
         }
+
         //Stops the player from being active. Currently at the end of lap, but should be changed
         if (currentField.isLapFinish)
         {
             isStillPlaying = false;
         }
+
         return true;
     }
 
@@ -130,6 +148,7 @@ public class scr_RacerUnit : MonoBehaviour
         }
 
         currentSection = nextSec;
+        sectionStoppedCounter = 0;
         return Fields;
     }
 
@@ -181,8 +200,4 @@ public class scr_RacerUnit : MonoBehaviour
     {
         return true;
     }
-
-
-
-
 }

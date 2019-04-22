@@ -32,8 +32,10 @@ public class Scr_GManager : MonoBehaviour
     {
         if (currentUnit.remainingMovement == 0)
         {
+            currentUnit.sectionStoppedCounter++;
             SwitchUnit();
             currentUnit.remainingMovement = UnityEngine.Random.Range(1, currentUnit.speed + 1);
+            currentUnit.startField = currentUnit.currentField;
         }
     }
 
