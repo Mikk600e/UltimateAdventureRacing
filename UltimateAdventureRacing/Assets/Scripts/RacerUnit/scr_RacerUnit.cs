@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -79,8 +80,57 @@ public class scr_RacerUnit : MonoBehaviour
         List<scr_Field> scr_Fields = new List<scr_Field>();
         if (!currentField.isSectionFinish)
             scr_Fields = PossibleFieldsSection();
+        else 
+        {
+            scr_Fields = PossibleFieldsChangeSection();
+        }
 
         return scr_Fields;
+    }
+
+    private List<scr_Field> PossibleFieldsChangeSection()
+    {
+        List<scr_Field> Fields = new List<scr_Field>();
+        scr_Section nextSec = currentSection.nextSection;
+
+        //Add the next field in middle lane
+        scr_Field tempField = nextSec.lanes[currentField.lane].fields[0];
+        if (LegitimateMove(tempField))
+        {
+            tempField.isPossible = true;
+            Fields.Add(tempField);
+        }
+
+        //Add the next field in the lane to the right
+        if (currentSection.rule == scr_Section.LaneShiftRules.both || currentSection.rule == scr_Section.LaneShiftRules.moveRight)
+        {
+            if (currentField.lane > 0)
+            {
+                tempField = nextSec.lanes[currentField.lane - 1].fields[0];
+                if (LegitimateMove(tempField))
+                {
+                    tempField.isPossible = true;
+                    Fields.Add(tempField);
+                }
+            }
+        }
+
+        //Add the next field in left lane
+        if (currentSection.rule == scr_Section.LaneShiftRules.both || currentSection.rule == scr_Section.LaneShiftRules.moveLeft)
+        {
+            if (currentField.lane < currentSection.lanes.Count - 1)
+            {
+                tempField = nextSec.lanes[currentField.lane + 1].fields[0];
+                if (LegitimateMove(tempField))
+                {
+                    tempField.isPossible = true;
+                    Fields.Add(tempField);
+                }
+            }
+        }
+
+        currentSection = nextSec;
+        return Fields;
     }
 
     List<scr_Field> PossibleFieldsSection()
@@ -96,24 +146,30 @@ public class scr_RacerUnit : MonoBehaviour
         }
 
         //Add the next field in the lane to the right
-        if (currentField.lane > 0)
+        if (currentSection.rule == scr_Section.LaneShiftRules.both || currentSection.rule == scr_Section.LaneShiftRules.moveRight)
         {
-            tempField = currentSection.lanes[currentField.lane - 1].fields[currentField.placementNumber + 1];
-            if (LegitimateMove(tempField))
+            if (currentField.lane > 0)
             {
-                tempField.isPossible = true;
-                Fields.Add(tempField);
+                tempField = currentSection.lanes[currentField.lane - 1].fields[currentField.placementNumber + 1];
+                if (LegitimateMove(tempField))
+                {
+                    tempField.isPossible = true;
+                    Fields.Add(tempField);
+                }
             }
         }
 
         //Add the next field in left lane
-        if (currentField.lane < currentSection.lanes.Count - 1)
+        if (currentSection.rule == scr_Section.LaneShiftRules.both || currentSection.rule == scr_Section.LaneShiftRules.moveLeft)
         {
-            tempField = currentSection.lanes[currentField.lane + 1].fields[currentField.placementNumber + 1];
-            if (LegitimateMove(tempField))
+            if (currentField.lane < currentSection.lanes.Count - 1)
             {
-                tempField.isPossible = true;
-                Fields.Add(tempField);
+                tempField = currentSection.lanes[currentField.lane + 1].fields[currentField.placementNumber + 1];
+                if (LegitimateMove(tempField))
+                {
+                    tempField.isPossible = true;
+                    Fields.Add(tempField);
+                }
             }
         }
 

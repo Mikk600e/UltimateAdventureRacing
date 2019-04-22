@@ -12,6 +12,7 @@ public class scr_Section : MonoBehaviour
     public int minRequiredStops;
     public int placementNumber;
     public List<scr_Lane> lanes;
+    public scr_Section nextSection;
     public LaneShiftRules rule = LaneShiftRules.both;
     
     void Start()
